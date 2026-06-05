@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>P.H.E.D Medical Training Institute</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f9f9;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: teal;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .reg-no {
+            color: #666;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+        }
+
+        .search-box {
+            background-color: white;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: teal;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #006666;
+        }
+
+        .result-card {
+            background-color: #e6f7f7;
+            border: 2px dashed teal;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: none;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="logo.jpg.jpeg" alt="ইনস্টিটিউট লোগো" class="logo">
+    <h1>P.H.E.D Medical Training Institute</h1>
+    <p class="reg-no">গভঃ রেজিঃ নং: (S-2441)</p>
+
+    <p>আমাদের অনলাইন স্টুডেন্ট পোর্টালে আপনাকে স্বাগতম।</p>
+    <p>নিচের বক্সে আপনার <strong>আইডি নম্বর</strong> লিখে আপনার ডকুমেন্টস খুঁজে নিন।</p>
+
+    <div class="search-box">
+        <h2>ডকুমেন্ট সার্চ করুন</h2>
+        <input type="text" id="studentId" placeholder="আপনার স্টুডেন্ট আইডি লিখুন...">
+        <br>
+        <button type="button" onclick="searchDocument()">সার্চ করুন</button>
+
+        <div id="resultBox" class="result-card">
+            <h3 style="color: teal; text-align: center; margin-top: 0;">— স্টুডেন্ট ডকুমেন্ট —</h3>
+            <p><strong>নাম:</strong> <span id="resName"></span></p>
+            <p><strong>আইডি নম্বর:</strong> <span id="resId"></span></p>
+            <p><strong>কোর্স:</strong> <span id="resCourse"></span></p>
+            <p><strong>ফলাফল/মার্কশীট:</strong> <span id="resMark"></span></p>
+            <p><strong>সার্টিফিকেট স্ট্যাটাস:</strong> <span style="color: green; font-weight: bold;"
+                    id="resStatus"></span></p>
+            <p><strong>ডকুমেন্ট লিংক:</strong> <a id="resLink" href="#" target="_blank"
+                    style="background-color: teal; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; font-size: 14px;">সার্টিফিকেট
+                    দেখুন</a></p>
+
+            <p><strong>ডকুমেন্ট ফাইল:</strong> <a id="resLink" href="#" target="_blank"
+                    style="background-color: teal; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold;">সার্টিফিকেট
+                    / আইডি কার্ড ডাউনলোড করুন</a></p>
+        </div>
+    </div>
+
+    <script>
+        function searchDocument() {
+            var input = document.getElementById("studentId").value.trim();
+            var resultBox = document.getElementById("resultBox");
+            var linkTag = document.getElementById("resLink");
+
+            if (input === "101") {
+                document.getElementById("resName").innerText = "মোঃ আরিফ হোসেন";
+                document.getElementById("resId").innerText = "101";
+                document.getElementById("resCourse").innerText = "Medical Assistant (MATS)";
+                document.getElementById("resMark").innerText = "GPA- 4.50 (Passed)";
+                document.getElementById("resStatus").innerText = "মূল সার্টিফিকেট তৈরি হয়েছে";
+
+                // ১০১ আইডির সার্টিফিকেটের ফাইলের নাম (লিংক সেট করা)
+                linkTag.href = "certificate101.jpg";
+
+                resultBox.style.display = "block";
+            }
+            else if (input === "102") {
+                document.getElementById("resName").innerText = "তানজিলা আক্তার";
+                document.getElementById("resId").innerText = "102";
+                document.getElementById("resCourse").innerText = "Community Nursing";
+                document.getElementById("resMark").innerText = "GPA- 4.85 (Passed)";
+                document.getElementById("resStatus").innerText = "মূল সার্টিফিকেট তৈরি হয়েছে";
+
+                linkTag.href = "certificate102.jpg";
+
+                resultBox.style.display = "block";
+            }
+            else if (input === "6149") {
+                document.getElementById("resName").innerText = "MD.Amzad Hossain";
+                document.getElementById("resId").innerText = "6149";
+                document.getElementById("resCourse").innerText = "Paramedical Training Certificate";
+                document.getElementById("resMark").innerText = "GPA- 4.20 (Passed)";
+                document.getElementById("resStatus").innerText = "সার্টিফিকেট প্রক্রিয়াধীন (Pending)";
+
+                // ১০৪ আইডির সার্টিফিকেটের ফাইলের নাম
+                linkTag.href = "certificate104.jpg.jpeg";
+
+                resultBox.style.display = "block";
+            }
+            else if (input === "") {
+                alert("দয়া করে একটি স্টুডেন্ট আইডি লিখুন!");
+                resultBox.style.display = "none";
+            }
+            else {
+                alert("দুঃখিত! এই আইডি নম্বরের কোনো তথ্য পাওয়া যায়নি।");
+                resultBox.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

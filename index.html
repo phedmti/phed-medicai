@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
-<meta name="google-site-verification" content="gLaFSiI2-nN8SmyhgD2B2JaUsvxIc3RhljDBLQBbazo" />    
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P.H.E.D Medical Training Institute</title>
     <style>
         body {
-    background-image: url('theme-phed.jpeg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+            background-image: url('./theme-phed.jpeg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             font-family: Arial, sans-serif;
             background-color: #f4f9f9;
             text-align: center;
@@ -84,126 +83,124 @@
             border-radius: 8px;
             display: none;
             text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-section {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .gallery-section img {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
     </style>
 </head>
-
 <body>
 
-    <img src="logo.jpg.jpeg" alt="ইনস্টিটিউট লোগো" class="logo">
+    <!-- ইনস্টিটিউট লোগো -->
+    <img src="./logo.jpg" alt="ইনস্টিটিউট লোগো" class="logo">
+
     <h1>P.H.E.D Medical Training Institute</h1>
     <p class="reg-no">গভঃ রেজিঃ নং: (S-2441)</p>
 
     <p>আমাদের অনলাইন স্টুডেন্ট পোর্টালে আপনাকে স্বাগতম।</p>
     <p>নিচের বক্সে আপনার <strong>রোল নং</strong> লিখে আপনার সার্টিফিকেট ও ডকুমেন্টস খুঁজে নিন।</p>
 
+    <!-- সার্চ বক্স -->
     <div class="search-box">
         <h2>ডকুমেন্ট সার্চ করুন</h2>
         <input type="text" id="studentId" placeholder="আপনার স্টুডেন্ট রোল নং লিখুন...">
         <br>
         <button type="button" onclick="searchDocument()">সার্চ করুন</button>
- 
+
+        <!-- রেজাল্ট কার্ড কার্ড -->
         <div id="resultBox" class="result-card">
-            <h3 style="color: teal; text-align: center; margin-top: 0;">— স্টুডেন্ট ডকুমেন্ট —</h3>
-            <p><strong>নাম:</strong> <span id="resName"></span></p>
-            <p><strong>আইডি নম্বর:</strong> <span id="resId"></span></p>
-            <p><strong>কোর্স:</strong> <span id="resCourse"></span></p>
-            <p><strong>ফলাফল/মার্কশীট:</strong> <span id="resMark"></span></p>
-            <p><strong>সার্টিফিকেট স্ট্যাটাস:</strong> <span style="color: green; font-weight: bold;"
-                    id="resStatus"></span></p>
-            <p><strong>ডকুমেন্ট লিংক:</strong> <a id="resLink" href="#" target="_blank"
-                    style="background-color: teal; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; font-size: 14px;">সার্টিফিকেট
-                    দেখুন</a></p>
-
-            <p><strong>ডকুমেন্ট ফাইল:</strong></p>
-<div style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 10px;">
-            <a id="certificateLink" href="#" target="_blank" style="background-color: teal; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; display: inline-block; width: 80%; max-width: 250px;">সার্টিফিকেট ডাউনলোড করুন</a>
-            <a id="transcriptLink" href="#" target="_blank" style="background-color: #2c3e50; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; display: inline-block; width: 80%; max-width: 250px;">Academic Transcript</a>
-            <a id="registrationLink" href="#" target="_blank" style="background-color: #27ae60; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; display: inline-block; width: 80%; max-width: 250px;">Registration Card</a>
-            <a id="admitLink" href="#" target="_blank" style="background-color: #d35400; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; display: inline-block; width: 80%; max-width: 250px;">Admit Card</a>
-            <a id="idCardLink" href="#" target="_blank" style="background-color: #2980b9; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; display: inline-block; width: 80%; max-width: 250px;">ID Card ডাউনলোড করুন</a>
+            <h3 style="color: teal; text-align: center; margin-top: 0;">স্টুডেন্ট ডকুমেন্ট</h3>
+            <p><strong>নাম: </strong><span id="resName"></span></p>
+            <p><strong>আইডি নম্বর: </strong><span id="resId"></span></p>
+            <p><strong>কোর্স: </strong><span id="resCourse"></span></p>
+            <p><strong>ফলাফল/মার্কস: </strong><span id="resMark"></span></p>
+            <p><strong>সার্টিফিকেট স্ট্যাটাস: </strong><span style="color: green; font-weight: bold;" id="resStatus"></span></p>
+            <p style="text-align: center; margin-bottom: 0;">
+                <strong>ডকুমেন্ট লিংক: </strong><a id="resLink" href="#" target="_blank" style="background-color: #23e350; color: white; padding: 6px 12px; text-decoration: none; border-radius: 5px; font-weight: bold;">ডাউনলোড করুন</a>
+            </p>
         </div>
-<div style="margin-top: 50px; display: flex; flex-direction: column; align-items: center; gap: 30px;">
-        
-        <div style="text-align: center;">
-            <img src="dms.jpeg" alt="Lab Class" style="width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
-        </div>
-
-        <div style="text-align: center;">
-            <img src="para.jpeg" alt="Campus" style="width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
-        </div>
-
-        <div style="text-align: center;">
-            <img src="phar.jpeg" alt="Event" style="width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
-        </div>
-
-        <div style="text-align: center;">
-            <img src="nur.jpeg" alt="Nursing" style="width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
-        </div>
-
-        <div style="text-align: center;">
-            <img src="skn.jpeg" alt="Medical Session" style="width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
-        </div>
-
-        <div style="text-align: center;">
-            <img src="lma.jpeg" alt="Other Activity" style="width: 80%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
-        </div>
-
     </div>
 
+    <!-- ছবির গ্যালারি সেকশন -->
+    <div class="gallery-section">
+        <div>
+            <img src="./dms.jpeg" alt="Lab Class">
+        </div>
+        <div>
+            <img src="./para.jpeg" alt="Campus">
+        </div>
+        <div>
+            <img src="./phar.jpeg" alt="Event">
+        </div>
+        <div>
+            <img src="./skn.jpeg" alt="Medical Session">
+        </div>
+        <div>
+            <img src="./lma.jpeg" alt="Other Activity">
+        </div>
+    </div>
 
+    <!-- জাভাস্ক্রিপ্ট লজিক -->
     <script>
         function searchDocument() {
             var input = document.getElementById("studentId").value.trim();
             var resultBox = document.getElementById("resultBox");
             var linkTag = document.getElementById("resLink");
 
+            if (input === "") {
+                alert("দয়া করে একটি স্টুডেন্ট আইডি লিখুন!");
+                resultBox.style.display = "none";
+                return;
+            }
+
+            // স্টুডেন্ট ডেটা ডাটাবেজ
             if (input === "101") {
                 document.getElementById("resName").innerText = "মোঃ আরিফ হোসেন";
                 document.getElementById("resId").innerText = "101";
                 document.getElementById("resCourse").innerText = "Medical Assistant (MATS)";
                 document.getElementById("resMark").innerText = "GPA- 4.50 (Passed)";
                 document.getElementById("resStatus").innerText = "মূল সার্টিফিকেট তৈরি হয়েছে";
-
-                // ১০১ আইডির সার্টিফিকেটের ফাইলের নাম (লিংক সেট করা)
-                linkTag.href = "certificate101.jpg";
-
+                linkTag.href = "./certificate101.jpg";
                 resultBox.style.display = "block";
-            }
+            } 
             else if (input === "102") {
                 document.getElementById("resName").innerText = "তানজিলা আক্তার";
                 document.getElementById("resId").innerText = "102";
                 document.getElementById("resCourse").innerText = "Community Nursing";
                 document.getElementById("resMark").innerText = "GPA- 4.85 (Passed)";
                 document.getElementById("resStatus").innerText = "মূল সার্টিফিকেট তৈরি হয়েছে";
-
-                linkTag.href = "certificate102.jpg";
-
+                linkTag.href = "./certificate102.jpg";
                 resultBox.style.display = "block";
-            }
+            } 
             else if (input === "6149") {
-                document.getElementById("resName").innerText = "MD.Amzad Hossain";
+                document.getElementById("resName").innerText = "MD. Amzad Hossain";
                 document.getElementById("resId").innerText = "6149";
                 document.getElementById("resCourse").innerText = "Paramedical Training Certificate";
                 document.getElementById("resMark").innerText = "GPA- 4.20 (Passed)";
-                document.getElementById("resStatus").innerText = "মূল সার্টিফিকেট তৈরি হয়েছে;
-
-                // ১০৪ আইডির সার্টিফিকেটের ফাইলের নাম
-                linkTag.href = "certificate104.jpg.jpeg";
-
+                document.getElementById("resStatus").innerText = "মূল সার্টিফিকেট তৈরি হয়েছে";
+                linkTag.href = "./certificate104.jpeg"; 
                 resultBox.style.display = "block";
-            }
-            else if (input === "") {
-                alert("দয়া করে একটি স্টুডেন্ট আইডি লিখুন!");
-                resultBox.style.display = "none";
-            }
+            } 
             else {
                 alert("দুঃখিত! এই আইডি নম্বরের কোনো তথ্য পাওয়া যায়নি।");
                 resultBox.style.display = "none";
             }
         }
     </script>
-
 </body>
-
 </html>
